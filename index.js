@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const port = 8080;
 
 mongoose.set('strictQuery', true);
 
@@ -23,10 +24,10 @@ app.use("/post", postRouter);
 
 
 
-app.listen(process.env.port, async () => {
+app.listen(port, async () => {
     try {
         await connection;
-        console.log(`Server is running at port ${process.env.port}`);
+        console.log(`Server is running at port ${port}`);
     } catch (error) {
         console.log('Cannot able to start the server', "error: ",error);
     }
